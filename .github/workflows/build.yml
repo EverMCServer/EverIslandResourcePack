@@ -1,0 +1,32 @@
+
+name: Build Resource Pack
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pillow bdfparser yaml
+    - name: Build
+      run: |
+        python build.py
+    - uses: actions/upload-artifact@v2.2.0
+      with:
+        name: EverIslandResources
+        path: build/EverIslandResources
+        
