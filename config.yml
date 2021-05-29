@@ -7,3 +7,15 @@ icons:
     color1: "#f7bd2c"
     color2: "#fbea57"
     text: "正版玩家"
+  - code: 2
+    color1: "#BFE9FB"
+    color2: "#BFE9FB"
+    text: "正式玩家"
+  - code: 3
+    color1: "#FB3200"
+    color2: "#FB3200"
+    text: "地狱"
+  - code: 4
+    color1: "#BEC08C"
+    color2: "#BEC08C"
+    text: "末地"
