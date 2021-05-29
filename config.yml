@@ -1,0 +1,9 @@
+icons:
+  - code: 0
+    color1: "#3cfbb3"
+    color2: "#3cfbb3"
+    text: "海岛"
+  - code: 1
+    color1: "#f7bd2c"
+    color2: "#fbea57"
+    text: "正版玩家"
