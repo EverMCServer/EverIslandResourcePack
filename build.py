@@ -115,7 +115,7 @@ with open('config.yml', 'r', encoding='utf-8') as f:
             "type": "bitmap",
             "file": "minecraft:font/twemoji_" + file,
             "height": 8,
-            "ascent": 8,
+            "ascent": 7,
             "chars": [
                 chr(code)
             ]
@@ -124,7 +124,7 @@ with open('config.yml', 'r', encoding='utf-8') as f:
             "type": "bitmap",
             "file": "minecraft:font/twemoji_" + file,
             "height": 8,
-            "ascent": 8,
+            "ascent": 6,
             "chars": [
                 chr(code)
             ]
