@@ -4,6 +4,7 @@ from bdfparser import Font
 import yaml
 import json
 from pathlib import Path
+import os
 
 font = Font("wenquanyi_10pt.bdf")
 
@@ -107,6 +108,28 @@ with open('config.yml', 'r', encoding='utf-8') as f:
             ]
         })
 
+    dirs = os.listdir("build/twemoji/")
+    for file in dirs:
+        code = int(file.replace(".png",""), 16)
+        providers.append({
+            "type": "bitmap",
+            "file": "minecraft:font/twemoji_" + file,
+            "height": 8,
+            "ascent": 8,
+            "chars": [
+                chr(code)
+            ]
+        })
+        providers_uniform.append({
+            "type": "bitmap",
+            "file": "minecraft:font/twemoji_" + file,
+            "height": 8,
+            "ascent": 8,
+            "chars": [
+                chr(code)
+            ]
+        })
+        
     directory = "build/EverIslandResources/assets/minecraft/font"
     Path(directory).mkdir(parents=True, exist_ok=True)
     data = json.dumps({"providers": providers})

@@ -24,7 +24,7 @@ jobs:
         pip install pillow bdfparser pyyaml
     - name: Build
       run: |
-        python build.py
+        bash ./build.sh
     - uses: actions/upload-artifact@v2.2.0
       with:
         name: EverIslandResources
