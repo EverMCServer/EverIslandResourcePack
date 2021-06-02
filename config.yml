@@ -19,3 +19,43 @@ icons:
     color1: "#BEC08C"
     color2: "#BEC08C"
     text: "末地"
+  - code: 5
+    color1: "#9DE810"
+    color2: "#9DE810"
+    text: "生存"
+  - code: 6
+    color1: "#BC61E6"
+    color2: "#BC61E6"
+    text: "副本"
+  - code: 7
+    color1: "#7F8AF9"
+    color2: "#7F8AF9"
+    text: "资源"
+  - code: 8
+    color1: "#B8C4B8"
+    color2: "#B8C4B8"
+    text: "游客"
+  - code: 9
+    color1: "#FF9700"
+    color2: "#FFBD00"
+    text: "高级玩家"
+  - code: 10
+    color1: "#be84f7"
+    color2: "#eaa6ff"
+    text: "初级鹳狸"
+  - code: 11
+    color1: "#be84f7"
+    color2: "#eaa6ff"
+    text: "中级鹳狸"
+  - code: 12
+    color1: "#be84f7"
+    color2: "#eaa6ff"
+    text: "高级鹳狸"
+  - code: 13
+    color1: "#be84f7"
+    color2: "#eaa6ff"
+    text: "笨蛋鹳狸"
+  - code: 14
+    color1: "#be84f7"
+    color2: "#eaa6ff"
+    text: "智障鹳狸"
