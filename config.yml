@@ -19,3 +19,15 @@ icons:
     color1: "#BEC08C"
     color2: "#BEC08C"
     text: "末地"
+  - code: 5
+    color1: "#04FEDC"
+    color2: "#04FEDC"
+    text: "生存"
+  - code: 6
+    color1: "#BC61E6"
+    color2: "#BC61E6"
+    text: "副本"
+  - code: 7
+    color1: "#7F8AF9"
+    color2: "#7F8AF9"
+    text: "资源"
