@@ -39,7 +39,7 @@ icons:
     color1: "#FF9700"
     color2: "#FFBD00"
     text: "高级玩家"
-  - code: 11
+  - code: 10
     color1: "#be84f7"
     color2: "#eaa6ff"
     text: "初级鹳狸"
