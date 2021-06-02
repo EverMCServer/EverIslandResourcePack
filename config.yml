@@ -36,7 +36,26 @@ icons:
     color2: "#B8C4B8"
     text: "游客"
   - code: 9
-    color1: "#FFC100"
-    color2: "#FFC100"
+    color1: "#FF9700"
+    color2: "#FFBD00"
     text: "高级玩家"
-
+  - code: 11
+    color1: "#be84f7"
+    color2: "#eaa6ff"
+    text: "初级灌狸"
+  - code: 11
+    color1: "#be84f7"
+    color2: "#eaa6ff"
+    text: "中级灌狸"
+  - code: 12
+    color1: "#be84f7"
+    color2: "#eaa6ff"
+    text: "高级灌狸"
+  - code: 13
+    color1: "#be84f7"
+    color2: "#eaa6ff"
+    text: "笨蛋灌狸"
+  - code: 14
+    color1: "#be84f7"
+    color2: "#eaa6ff"
+    text: "智障灌狸"
