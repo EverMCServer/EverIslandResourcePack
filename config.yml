@@ -20,8 +20,8 @@ icons:
     color2: "#BEC08C"
     text: "末地"
   - code: 5
-    color1: "#04FEDC"
-    color2: "#04FEDC"
+    color1: "#9DE810"
+    color2: "#9DE810"
     text: "生存"
   - code: 6
     color1: "#BC61E6"
@@ -31,3 +31,12 @@ icons:
     color1: "#7F8AF9"
     color2: "#7F8AF9"
     text: "资源"
+  - code: 8
+    color1: "#B8C4B8"
+    color2: "#B8C4B8"
+    text: "游客"
+  - code: 9
+    color1: "#FFC100"
+    color2: "#FFC100"
+    text: "高级玩家"
+
