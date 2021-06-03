@@ -15,4 +15,7 @@ for i in `find -name "*-*"`; do rm $i; done
 cd ../..
 python3 build.py
 cd build/twemoji
-for i in *; do mv $i ../EverIslandResources/assets/minecraft/textures/font/twemoji_$i;done
+for i in *; do 
+    python3 ../../downscale.py $i
+    mv $i ../EverIslandResources/assets/minecraft/textures/font/twemoji_$i
+done
