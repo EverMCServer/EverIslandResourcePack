@@ -59,3 +59,11 @@ icons:
     color1: "#be84f7"
     color2: "#eaa6ff"
     text: "智障鹳狸"
+  - code: 15
+    color1: "#E0429D"
+    color2: "#E0429D"
+    text: "创造"
+  - code: 16
+    color1: "#3CAAFB"
+    color2: "#3CAAFB"
+    text: "空岛"
