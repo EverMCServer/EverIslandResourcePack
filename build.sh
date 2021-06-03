@@ -9,7 +9,6 @@ git fetch origin gh-pages:gh-pages --depth=1
 git checkout gh-pages
 cp -r v/latest/72x72 ../build/twemoji
 cd ..
-rm -rf twemoji
 cd build/twemoji
 for i in `find -name "*-*"`; do rm $i; done
 cd ../..
@@ -19,3 +18,6 @@ for i in *; do
     python3 ../../downscale.py $i
     mv $i ../EverIslandResources/assets/minecraft/textures/font/twemoji_$i
 done
+cd ../..
+cp twemoji/LICENSE build/EverIslandResources/assets/minecraft/textures/font/LICENSE_twemoji
+rm -rf twemoji
