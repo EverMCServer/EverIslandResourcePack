@@ -67,3 +67,7 @@ icons:
     color1: "#3CAAFB"
     color2: "#3CAAFB"
     text: "空岛"
+  - code: 17
+    color1: "#FFCC00"
+    color2: "#FFCC00"
+    text: "小游戏"
