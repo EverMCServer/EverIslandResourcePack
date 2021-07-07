@@ -23,7 +23,7 @@ cp twemoji/LICENSE build/EverIslandResources/assets/minecraft/textures/font/LICE
 rm -rf twemoji
 
 VERSION="v0.9"
-for i in 7,"MC 1.17+" 6,"MC 1.16.2-1.16.5" 5,"MC 1.15-1.16.2" 4,"MC 1.13-1.14"; do IFS=","; set -- $i;
+for i in 7,"MC1.17+" 6,"MC1.16.2-1.16.5" 5,"MC1.15-1.16.2" 4,"MC1.13-1.14"; do IFS=","; set -- $i;
     color1="green"
     color2="light_purple"
     if [ "$1" -ge "6" ]; then

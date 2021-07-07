@@ -27,18 +27,17 @@ jobs:
         bash ./build.sh
     - uses: actions/upload-artifact@v2.2.0
       with:
-        name: "EverMCResources-MC 1.17+"
-        path: "build/EverIslandResources/EverMCResources-MC 1.17+.zip"
+        name: "EverMCResources-MC1.17+"
+        path: "build/EverMCResources-MC1.17+.zip"
     - uses: actions/upload-artifact@v2.2.0
       with:
-        name: "EverMCResources-MC 1.16.2-1.16.5"
-        path: "build/EverIslandResources/EverMCResources-MC 1.16.2-1.16.5.zip"
+        name: "EverMCResources-MC1.16.2-1.16.5"
+        path: "build/EverMCResources-MC1.16.2-1.16.5.zip"
     - uses: actions/upload-artifact@v2.2.0
       with:
-        name: "EverMCResources-MC 1.15-1.16.2"
-        path: "build/EverIslandResources/EverMCResources-MC 1.15-1.16.2.zip"
+        name: "EverMCResources-MC1.15-1.16.2"
+        path: "build/EverMCResources-MC1.15-1.16.2.zip"
     - uses: actions/upload-artifact@v2.2.0
       with:
-        name: "EverMCResources-MC 1.13-1.14"
-        path: "build/EverIslandResources/EverMCResources-MC 1.13-1.14.zip"
-        
+        name: "EverMCResources-MC1.13-1.14"
+        path: "build/EverMCResources-MC1.13-1.14.zip"
