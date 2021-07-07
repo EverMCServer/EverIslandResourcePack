@@ -16,11 +16,9 @@ python3 build.py
 cd build/twemoji
 for i in *; do 
     python3 ../../downscale.py $i
-    mv $i ../EverIslandResources/assets/minecraft/textures/font/twemoji_$i
+    cp $i ../EverIslandResources/assets/minecraft/textures/font/twemoji_$i
 done
 cd ../..
-cp twemoji/LICENSE build/EverIslandResources/assets/minecraft/textures/font/LICENSE_twemoji
-rm -rf twemoji
 
 VERSION="v0.9"
 for i in 7,"MC1.17+" 6,"MC1.16.2-1.16.5" 5,"MC1.15-1.16.2" 4,"MC1.13-1.14"; do IFS=","; set -- $i;
@@ -31,7 +29,10 @@ for i in 7,"MC1.17+" 6,"MC1.16.2-1.16.5" 5,"MC1.15-1.16.2" 4,"MC1.13-1.14"; do I
         color2="#edc1fb"
     fi
     python3 build.py -v $1 -d "{\"text\":\"\",\"extra\":[{\"text\":\"EverMC\",\"color\":\"$color1\"},{\"text\":\" 资源包\",\"color\":\"$color2\"},{\"text\":\" $VERSION\",\"color\":\"white\"},{\"text\":\" ($2)\",\"color\":\"gray\"}]}"
+    cp twemoji/LICENSE build/EverIslandResources/assets/minecraft/textures/font/LICENSE_twemoji
     cd build/EverIslandResources
     zip -r ../EverMCResources-$2.zip ./*
     cd ../..
 done
+
+rm -rf twemoji
