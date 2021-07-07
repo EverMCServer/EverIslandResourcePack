@@ -5,6 +5,8 @@ import yaml
 import json
 from pathlib import Path
 import os
+import sys
+import getopt
 
 font = Font("wenquanyi_10pt.bdf")
 
@@ -61,85 +63,100 @@ def generate(text_string, rgba1, rgba2, code):
     data = proc_theme2(text_string, rgba1, rgba2)
     data.save(directory + "/acidisland_{:03x}.png".format(code + 0x800))
 
-with open('config.yml', 'r', encoding='utf-8') as f:
-    icons = yaml.safe_load(f)['icons']
-    providers = []
-    providers_uniform = []
-    for icon in icons:
-        color1 = ImageColor.getrgb(icon['color1'])
-        color2 = ImageColor.getrgb(icon['color2'])
-        text = icon['text']
-        code = icon['code']
-        generate(text, color1, color2, code)
-        providers.append({
-            "type": "bitmap",
-            "file": "minecraft:font/acidisland_{:03x}.png".format(code),
-            "height": 8,
-            "ascent": 8,
-            "chars": [
-                chr(0xe000 + code)
-            ]
-        })
-        providers.append({
-            "type": "bitmap",
-            "file": "minecraft:font/acidisland_{:03x}.png".format(code + 0x800),
-            "height": 8,
-            "ascent": 8,
-            "chars": [
-                chr(0xe800 + code)
-            ]
-        })
-        providers_uniform.append({
-            "type": "bitmap",
-            "file": "minecraft:font/acidisland_{:03x}.png".format(code),
-            "height": 8,
-            "ascent": 7,
-            "chars": [
-                chr(0xe000 + code)
-            ]
-        })
-        providers_uniform.append({
-            "type": "bitmap",
-            "file": "minecraft:font/acidisland_{:03x}.png".format(code + 0x800),
-            "height": 8,
-            "ascent": 7,
-            "chars": [
-                chr(0xe800 + code)
-            ]
-        })
+def main(argv):
+    with open('config.yml', 'r', encoding='utf-8') as f:
+        icons = yaml.safe_load(f)['icons']
+        providers = []
+        providers_uniform = []
+        for icon in icons:
+            color1 = ImageColor.getrgb(icon['color1'])
+            color2 = ImageColor.getrgb(icon['color2'])
+            text = icon['text']
+            code = icon['code']
+            generate(text, color1, color2, code)
+            providers.append({
+                "type": "bitmap",
+                "file": "minecraft:font/acidisland_{:03x}.png".format(code),
+                "height": 8,
+                "ascent": 8,
+                "chars": [
+                    chr(0xe000 + code)
+                ]
+            })
+            providers.append({
+                "type": "bitmap",
+                "file": "minecraft:font/acidisland_{:03x}.png".format(code + 0x800),
+                "height": 8,
+                "ascent": 8,
+                "chars": [
+                    chr(0xe800 + code)
+                ]
+            })
+            providers_uniform.append({
+                "type": "bitmap",
+                "file": "minecraft:font/acidisland_{:03x}.png".format(code),
+                "height": 8,
+                "ascent": 7,
+                "chars": [
+                    chr(0xe000 + code)
+                ]
+            })
+            providers_uniform.append({
+                "type": "bitmap",
+                "file": "minecraft:font/acidisland_{:03x}.png".format(code + 0x800),
+                "height": 8,
+                "ascent": 7,
+                "chars": [
+                    chr(0xe800 + code)
+                ]
+            })
 
-    dirs = os.listdir("build/twemoji/")
-    for file in dirs:
-        code = int(file.replace(".png",""), 16)
-        providers.append({
-            "type": "bitmap",
-            "file": "minecraft:font/twemoji_" + file,
-            "height": 8,
-            "ascent": 7,
-            "chars": [
-                chr(code)
-            ]
-        })
-        providers_uniform.append({
-            "type": "bitmap",
-            "file": "minecraft:font/twemoji_" + file,
-            "height": 8,
-            "ascent": 7,
-            "chars": [
-                chr(code)
-            ]
-        })
-        
-    directory = "build/EverIslandResources/assets/minecraft/font"
-    Path(directory).mkdir(parents=True, exist_ok=True)
-    data = json.dumps({"providers": providers})
-    uni = json.dumps({"providers": providers_uniform})
-    f = open(directory + "/default.json", "w")
-    f.write(data)
-    f.close()
-    f = open(directory + "/uniform.json", "w")
-    f.write(uni)
-    f.close()
-    f = open("build/EverIslandResources/pack.mcmeta", "w")
-    f.write("{\"pack\": {\"description\": \"EverMC Acidisland Resource Pack\",\"pack_format\": 6}}")
-    f.close()
+        dirs = os.listdir("build/twemoji/")
+        for file in dirs:
+            code = int(file.replace(".png",""), 16)
+            providers.append({
+                "type": "bitmap",
+                "file": "minecraft:font/twemoji_" + file,
+                "height": 8,
+                "ascent": 7,
+                "chars": [
+                    chr(code)
+                ]
+            })
+            providers_uniform.append({
+                "type": "bitmap",
+                "file": "minecraft:font/twemoji_" + file,
+                "height": 8,
+                "ascent": 7,
+                "chars": [
+                    chr(code)
+                ]
+            })
+            
+        directory = "build/EverIslandResources/assets/minecraft/font"
+        Path(directory).mkdir(parents=True, exist_ok=True)
+        data = json.dumps({"providers": providers})
+        uni = json.dumps({"providers": providers_uniform})
+        version = '7'
+        description = "\"EverMC Acidisland Resource Pack\""
+        try:
+            opts, args = getopt.getopt(argv,"v:d:",["version=", "description="])
+        except getopt.GetoptError:
+            pass
+        for opt, arg in opts:
+            if opt in ("-v", "--version"):
+                version = arg
+            elif opt in ("-d", "--description"):
+                description = arg
+        f = open(directory + "/default.json", "w")
+        f.write(data)
+        f.close()
+        f = open(directory + "/uniform.json", "w")
+        f.write(uni)
+        f.close()
+        f = open("build/EverIslandResources/pack.mcmeta", "w")
+        f.write("{\"pack\": {\"description\": " + description + ",\"pack_format\": " + version + "}}")
+        f.close()
+
+if __name__ == "__main__":
+    main(sys.argv[1:])
